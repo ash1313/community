@@ -1,0 +1,23 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" href="{% static 'css/signin.css' %}">
+<div id="contain">
+    <div id="signin_box">
+        <h1>회원가입</h1>
+        <form id="signin_form" method="POST">
+            {% csrf_token %}
+            <!-- 이메일 -->
+            <div class="signin_form_group">
+                이메일 : <input type="email" class="signin_form_control" id="email" placeholder="이메일" name="email">
+            </div>
+            <br>
+            <!-- 비밀번호 -->
+            <div class="signin_form_group">
+               비밀번호 : <input type="password" class="signin_form_control" id="password1" placeholder="비밀번호" name="password1">
+            </div>
+            <br>
+            <input type="submit" value="로그인" class="submit_button">
+        </form>
+    </div>
+</div>
