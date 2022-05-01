@@ -11,9 +11,7 @@ class User(models.Model):
         return self.email
     class Meta:
         db_table ='user'
-        
         verbose_name = '유저'
-
         verbose_name_plural = '유저'
 
 
