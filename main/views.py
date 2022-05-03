@@ -1,12 +1,13 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .models import User
+from django.contrib.auth.models import User
 from .forms import SignInForm
 from django.contrib.auth import logout,login, authenticate
 from django.contrib import auth
 from django.contrib.auth.hashers import make_password, check_password 
 def index(request):
-    return render(request, "index.html")
+    return render(request, 'index.html')
 
 def signup(request):
     if request.method =='GET':
@@ -35,8 +36,8 @@ def signin(request):
         return render(request, 'signin.html')
    
     elif request.method == "POST":
-        email = request.POST.get('email')
-        password = request.POST.get('password')
+        email = request.POST('email')
+        password = request.POST('password')
         response_data = {}
         if not (email and password):
             response_data['error']="아이디와 비밀번호를 모두 입력해주세요."
