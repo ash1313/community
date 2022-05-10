@@ -9,10 +9,6 @@ class User(models.Model):
 
     def __str__(self):
         return self.email
-    class Meta:
-        db_table ='user'
-        verbose_name = '유저'
-        verbose_name_plural = '유저'
     REQUIRED_FIELDS = ['email', 'password']
     email.db_index = True
     EMAIL_FIELD = 'email'

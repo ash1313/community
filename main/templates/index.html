@@ -6,3 +6,6 @@
 {% if user.is_authenticated %}
 <a class="signbtn" href="{% url 'signout' %}">로그아웃</a>
 {% endif %}
+{% if user.is_authenticated %}
+안녕하세요{{user.email}}님 안녕하세요
+{% endif %}
