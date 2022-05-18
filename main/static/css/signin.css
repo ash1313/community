@@ -1,12 +1,11 @@
 #signin_box{
     width: 40%;
-    height: 70%;
+    height: 50%;
     text-align: center;
     background-color: rgb(233, 233, 233);
     margin: auto;
     margin-top: 10%;
 }
-
 
 #signin_form{
     width: 100%;
