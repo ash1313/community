@@ -1,4 +1,7 @@
+{% extends 'base.html' %}
 {% load static %}
+{% block main_area %}
+
 <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 <link rel="stylesheet" href="{% static 'css/main.css' %}">
 <link rel="stylesheet" href="{% static 'css/signin.css' %}">
@@ -21,3 +24,4 @@
         </form>
     </div>
 </div>
+{% endblock %}

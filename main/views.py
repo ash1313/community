@@ -1,6 +1,6 @@
 from collections import UserString
 import re
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout,login, authenticate
@@ -11,7 +11,14 @@ from .models import User
 from .forms import LoginForm
 
 def index(request):
-    return render(request, 'index.html')
+
+    # login을 통해서 확인된 user는 session을 통해 user.id를 넘겨 받았다.
+    user_id = request.session.get('user')
+    # user_id유무를 통해 login판단
+    if user_id:
+        user = User.objects.get(pk=user_id)
+        return render(request,'index.html')
+    return HttpResponse('Home')
 
 def signup(request):
     if request.method =='GET':
@@ -47,9 +54,7 @@ def signin(request):
         else:
             db = User.objects.get(email = email)
             if db.password == password:
-                
                 request.session['user'] = db.id
-                print(db.id)
                 return redirect('index')
             else:
                 res_data['error']="비밀번호 오류"
